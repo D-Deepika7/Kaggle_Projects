@@ -1,0 +1,5 @@
+{
+  "name": "BannerCraft AI",
+  "description": "Professional AI agent for generating high-quality advertising banner specifications, visual analysis, and creative strategy using Gemini 3 Pro.",
+  "requestFramePermissions": []
+}
