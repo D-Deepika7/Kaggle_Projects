@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlantDoctor AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+      
+      :root {
+        --bg-start: #f6fdf6;
+        --bg-end: #fffefb;
+        --cursor-url: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%2310b981" stroke="%23065f46" stroke-width="1.5"><path d="M12.001 2c-4.418 0-8 3.582-8 8 0 1.421.382 2.75 1.031 3.906.107.192.226.377.349.563l.031.055.02.031c.36.563.784 1.076 1.258 1.531l.094.086c.66.594 1.39 1.094 2.188 1.469l.125.055C10.158 18.172 11.066 18.5 12 18.5c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0 2c3.314 0 6 2.686 6 6 0 2.182-1.18 4.11-2.969 5.188-1.558.94-3.411 1.226-5.188.718l-.203-.062-.187-.063c-.157-.054-.311-.116-.461-.187l-.078-.047-.07-.039c-.589-.356-1.114-.805-1.547-1.328l-.062-.078-.055-.079c-.37-.534-.654-1.134-.82-1.78l-.024-.094-.015-.094C6.113 11.392 6 10.706 6 10c0-3.314 2.686-6 6-6z"/></svg>') 12 12, auto;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 60%);
+        min-height: 100vh;
+      }
+      
+      /* Only apply cursor if not reduced motion */
+      @media (prefers-reduced-motion: no-preference) {
+        body.custom-cursor {
+          cursor: var(--cursor-url);
+        }
+        button, a {
+          cursor: pointer; /* Fallback */
+        }
+        body.custom-cursor button, body.custom-cursor a {
+           cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23059669" stroke="%23065f46" stroke-width="2"><path d="M2 22s5-2 9-9c1.5-2.5 1-5 1-5s2 3 5 5c0 0-4 6-15 9z"/><path d="M12 13a7 7 0 0 0-7 7"/></svg>') 12 12, pointer;
+        }
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Quicksand', sans-serif;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D1FAE5;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #34D399;
+      }
+
+      .leaf-particle {
+        pointer-events: none;
+        position: fixed;
+        width: 14px;
+        height: 14px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2310b981"><path d="M2 22s5-2 9-9c1.5-2.5 1-5 1-5s2 3 5 5c0 0-4 6-15 9z"/></svg>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 9999;
+        animation: fadeOut 0.65s linear forwards;
+      }
+
+      @keyframes fadeOut {
+        0% { opacity: 0.9; transform: scale(1) translate(0, 0) rotate(0deg); }
+        100% { opacity: 0; transform: scale(0.5) translate(0, 20px) rotate(45deg); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "recharts": "https://esm.sh/recharts@^3.5.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="antialiased custom-cursor">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
